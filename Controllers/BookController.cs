@@ -17,6 +17,7 @@ public class BooksController : ControllerBase
         // si la chaîne de connexionn'a pas été trouvé => déclenche une exception => code http 500 retourné
         if (string.IsNullOrEmpty(_connexionString))
         {
+            Console.WriteLine("Problem with connexion string !");
             throw new InvalidOperationException("Error : Connexion string not found ! ");
         }
         else
