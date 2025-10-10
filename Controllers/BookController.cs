@@ -19,6 +19,10 @@ public class BooksController : ControllerBase
         {
             throw new InvalidOperationException("Error : Connexion string not found ! ");
         }
+        else
+        {
+            Console.WriteLine("Connection string : " + _connexionString);
+        }
     }
 
     [HttpGet]
