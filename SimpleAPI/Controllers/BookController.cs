@@ -22,7 +22,7 @@ public class BooksController : ControllerBase
     }
 
     [HttpGet]
-    public async Task<IEnumerable<Book>> Get()
+    public async Task<IEnumerable<Book>> GetAllBooks()
     {
         string query = "SELECT id, isbn, titre, description FROM public.book;";
         IEnumerable<Book> books;
