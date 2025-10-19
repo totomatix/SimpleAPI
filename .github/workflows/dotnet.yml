@@ -13,9 +13,7 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-    env:
-        ConnectionStrings__DefaultConnection: "server=127.0.0.1;port=5432;database=bookstoreDB;uid=postgres;pwd=postgres"
-        ASPNETCORE_ENVIRONMENT: CI
+    
     services:
       postgres:
         image: postgres
@@ -94,4 +92,7 @@ jobs:
       run: dotnet build --no-restore
     - name: Test
       run: dotnet test --no-build --verbosity normal
+      env:
+        ConnectionStrings__DefaultConnection: "server=127.0.0.1;port=5432;database=bookstoreDB;uid=postgres;pwd=postgres"
+        ASPNETCORE_ENVIRONMENT: Integration
       
