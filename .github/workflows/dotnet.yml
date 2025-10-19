@@ -92,5 +92,5 @@ jobs:
     - name: Test
       run: dotnet test --no-build --verbosity normal
       env:
-        ConnectionStrings__DefaultConnection: "server=postgres;port=5432;database=bookstoreDB;uid=postgres;pwd=postgres"
+        ConnectionStrings__DefaultConnection: "server=127.0.0.1;port=5432;database=bookstoreDB;uid=postgres;pwd=postgres"
         ASPNETCORE_ENVIRONMENT: CI
