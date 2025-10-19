@@ -86,7 +86,6 @@ jobs:
       uses: actions/setup-dotnet@v4
       with:
         dotnet-version: 9.0.x
-        ConnectionStrings__DefaultConnection: "server=127.0.0.1;port=5432;database=bookstoreDB;uid=postgres;pwd=postgres"
         ASPNETCORE_ENVIRONMENT: Integration
     - name: Restore dependencies
       run: dotnet restore
