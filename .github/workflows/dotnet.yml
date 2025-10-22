@@ -94,12 +94,6 @@ jobs:
       run: dotnet build --no-restore
     - name: Test
       run: dotnet test --no-build --verbosity normal
-    - name: Merge development -> staging
-      uses: devmasx/merge-branch@master
-      with:
-        type: now
-        from_branch: main
-        target_branch: release
-        github_token: ${{ secrets.GITHUB_TOKEN }}
+    
       
       
