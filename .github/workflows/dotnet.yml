@@ -19,7 +19,7 @@ jobs:
         image: postgres
 
         env:
-          POSTGRES_PASSWORD: postgres
+          POSTGRES_PASSWORD: 7*MGTuEXnS9rRabp3v85
           POSTGRES_USER: postgres
           POSTGRES_DB: bookstoreDB
 
@@ -35,7 +35,7 @@ jobs:
     steps:
     - name: Create database
       run: |
-       PGPASSWORD=postgres psql -U postgres -h 127.0.0.1 -p 5432 -d bookstoreDB -tc "BEGIN;
+       PGPASSWORD=7*MGTuEXnS9rRabp3v85 psql -U postgres -h 127.0.0.1 -p 5432 -d bookstoreDB -tc "BEGIN;
         CREATE TABLE IF NOT EXISTS public.book
         (
             id integer NOT NULL,

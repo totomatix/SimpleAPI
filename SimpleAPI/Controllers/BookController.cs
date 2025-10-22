@@ -32,7 +32,7 @@ public class BooksController : ControllerBase
         }
         return books;
     }
-
+    [Route("{id}")]
     [HttpGet]
     public async Task<Book> GetBookById([FromRoute] int id)
     {
