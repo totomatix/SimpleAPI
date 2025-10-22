@@ -32,4 +32,16 @@ public class BooksController : ControllerBase
         }
         return books;
     }
+
+    [HttpGet]
+    public async Task<Book> GetBookById([FromRoute] int id)
+    {
+        string query = "SELECT id, isbn, titre, description FROM public.book WHERE id=@id;";
+        Book book;
+        using (var connexion = new NpgsqlConnection(_connexionString))
+        {
+            book = await connexion.QuerySingleAsync<Book>(query, new {id=id});
+        }
+        return book;
+    }
 }
