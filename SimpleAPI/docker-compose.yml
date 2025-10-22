@@ -1,0 +1,37 @@
+services:
+  db:
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: simpleapi
+      POSTGRES_PASSWORD: PasswordTropDur!
+      POSTGRES_DB: bookstoreDB
+    volumes:
+      - simpleapidb:/var/lib/postgresql/18/data
+      - ./initdb.d:/docker-entrypoint-initdb.d
+    networks:
+      - simpleapi-net
+
+  adminer:
+    image: adminer
+    ports:
+      - 8084:8080
+    networks:
+      - simpleapi-net
+
+  simpleapi:
+    build: 
+      dockerfile: ./SimpleAPI/dockerfile
+      context: ..
+    ports:
+      - 8889:8080
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings:DefaultConnection=Server=db;database=bookstoreDB;Uid=simpleapi;Pwd=PasswordTropDur!;Port=5432;
+    networks:
+      - simpleapi-net
+
+volumes:
+  simpleapidb:
+
+networks:
+  simpleapi-net:
